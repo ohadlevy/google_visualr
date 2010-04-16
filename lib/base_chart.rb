@@ -232,6 +232,8 @@ module GoogleVisualr
           return value
         when value.is_a?(Date)
           return "new Date(#{value.year}, #{value.month-1}, #{value.day})"
+        when value.is_a?(Time)
+          return "new Date(#{value.strftime('%Y, %m, %d, %H, %M')})"
         when value.is_a?(TrueClass) || value.is_a?(FalseClass)
           return "#{value}"
         #Time
